@@ -1,12 +1,29 @@
 #include "menu.h"
+#include "registration.h"
+#include "login.h"
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
+Menu::Menu() {
+    registration = new Registration(this);
+    login = new Login(this);
+}
+
 void Menu::clearScreen() {
-    // ANSI escape code clears the console
-    cout << "\033[2J\033[1;1H";
+#ifdef _WIN32
+    system("cls");       // Windows
+#else
+    system("clear");     // macOS / Linux
+#endif
+}
+
+void Menu::pause() {
+    cout << "Press Enter to continue...";
+    string dummy;
+    getline(cin, dummy);
 }
 
 void Menu::showMainMenu() {
@@ -20,13 +37,33 @@ void Menu::showMainMenu() {
         cout << "2. Register" << endl;
         cout << "3. Exit" << endl;
         cout << "Enter choice: ";
-        getline(cin, choice);
+        // exit if there is no more input (Ctrl+D / end of file)
+        if (!getline(cin, choice)) {
+            break;
+        }
 
         if (choice == "1") {
-            cout << "Login is not implemented yet." << endl;
+            if (login->loginUser()) {
+                if (login->isAdminLoggedIn()) {
+                    cout << "Admin login successful!" << endl;
+                    // admin menu will go here (Phase 8)
+                    login->logout();
+                }
+                else {
+                    cout << "Login successful! Welcome, @"
+                         << login->getCurrentUsername() << endl;
+                    // user menu will go here (Phase 5)
+                    login->logout();
+                }
+                pause();
+            }
+            else {
+                cout << "Invalid username or password." << endl;
+                pause();
+            }
         }
         else if (choice == "2") {
-            cout << "Register is not implemented yet." << endl;
+            registration->registerUser();   // pauses by itself
         }
         else if (choice == "3") {
             cout << "Goodbye!" << endl;
@@ -34,9 +71,7 @@ void Menu::showMainMenu() {
         }
         else {
             cout << "Invalid choice. Try again." << endl;
+            pause();
         }
-
-        cout << "Press Enter to continue...";
-        getline(cin, choice);
     }
 }

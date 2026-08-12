@@ -1,12 +1,19 @@
 #ifndef MENU_H
 #define MENU_H
 
+class Registration;
+class Login;
+
 class Menu {
 public:
+    Menu();
     void showMainMenu();
+    void clearScreen();
 
 private:
-    void clearScreen();
+    void pause();
+    Registration* registration;
+    Login* login;
 };
 
 #endif
