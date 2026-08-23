@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "registration.h"
 #include "login.h"
+#include "skill.h"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -10,6 +11,7 @@ using namespace std;
 Menu::Menu() {
     registration = new Registration(this);
     login = new Login(this);
+    skillManager = new SkillManager(this);
 }
 
 void Menu::clearScreen() {
@@ -52,7 +54,9 @@ void Menu::showMainMenu() {
                 else {
                     cout << "Login successful! Welcome, @"
                          << login->getCurrentUsername() << endl;
-                    // user menu will go here (Phase 5)
+                    pause();
+                    // user menu (skills) until the user logs out
+                    skillManager->showUserMenu(login);
                     login->logout();
                 }
                 pause();

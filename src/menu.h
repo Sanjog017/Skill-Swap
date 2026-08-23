@@ -3,6 +3,7 @@
 
 class Registration;
 class Login;
+class SkillManager;
 
 class Menu {
 public:
@@ -14,6 +15,7 @@ private:
     void pause();
     Registration* registration;
     Login* login;
+    SkillManager* skillManager;
 };
 
 #endif

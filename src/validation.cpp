@@ -32,6 +32,19 @@ bool Validation::isValidPassword(string password) {
     return !password.empty();
 }
 
+// skills are saved as comma-separated lines, so no commas allowed
+bool Validation::isValidSkill(string name) {
+    if (name.empty()) {
+        return false;
+    }
+    for (char c : name) {
+        if (c == ',') {
+            return false;
+        }
+    }
+    return true;
+}
+
 // reads password without showing it on screen (shows * instead)
 string Validation::readPassword() {
     string password;
