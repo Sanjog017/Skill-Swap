@@ -1,16 +1,16 @@
-#ifndef USER_H
-#define USER_H
+#ifndef ADMIN_H
+#define ADMIN_H
 
 #include "account.h"
 
 namespace skillswap {
 
-// User inherits from Account — a regular user who can add skills and swap
-class User : public Account {
+// Admin inherits from Account — has extra privileges like deleting users
+class Admin : public Account {
 public:
     // constructor — passes everything up to Account
-    User(int id, std::string name, std::string username,
-         std::string password, std::string role = "user");
+    Admin(int id, std::string name, std::string username,
+          std::string password, std::string role = "admin");
 
     // overrides Account's pure virtual function
     void displayMenu() override;

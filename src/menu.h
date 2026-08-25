@@ -1,21 +1,23 @@
 #ifndef MENU_H
 #define MENU_H
 
-class Registration;
-class Login;
-class SkillManager;
+#include "namespace.h"
+
+namespace skillswap {
 
 class Menu {
 public:
-    Menu();
-    void showMainMenu();
-    void clearScreen();
+    Menu();             // creates menu components
+    ~Menu();            // cleans up menu components
+    void showMainMenu();    // displays login/register/exit loop
 
 private:
-    void pause();
-    Registration* registration;
-    Login* login;
-    SkillManager* skillManager;
+    void clearScreen();     // clears the terminal
+    void pause();           // waits for Enter key
+
+    Account* currentAccount;    // polymorphism — points to User or Admin
 };
+
+} // namespace skillswap
 
 #endif

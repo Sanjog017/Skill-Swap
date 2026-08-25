@@ -1,37 +1,50 @@
 #ifndef SKILL_H
 #define SKILL_H
 
+#include "namespace.h"
 #include <string>
+#include <iostream>
 
-class Menu;
-class Login;
+namespace skillswap {
 
-// one skill in skills.txt: UserID,SkillName,SkillType
+// enumeration for skill type — teaches or wants to learn
+enum SkillType {
+    TEACH,
+    LEARN
+};
+
 class Skill {
 public:
-    Skill(int userId, std::string name, std::string type);
+    // default constructor
+    Skill();
 
-    int getUserId() const;
-    std::string getName() const;
-    std::string getType() const;
+    // parameterized constructor
+    Skill(int userId, std::string name, SkillType type);
+
+    // copy constructor
+    Skill(const Skill& other);
+
+    // getters (inline)
+    int getUserId() const { return userId; }
+    std::string getName() const { return name; }
+    SkillType getType() const { return type; }
+
+    // static data member — counts total skills created
+    static int count;
+
+    // static member function — returns the current count
+    static int getCount();
+
+    // operator overloading — << for printing a Skill
+    // friend function — has access to private members
+    friend std::ostream& operator<<(std::ostream& out, const Skill& s);
 
 private:
     int userId;
     std::string name;
-    std::string type;       // "teach" or "learn"
+    SkillType type;
 };
 
-// the menu a normal user sees after logging in
-class SkillManager {
-public:
-    SkillManager(Menu* menu);
-    void showUserMenu(Login* login);
-
-private:
-    void addSkill(Login* login, std::string type);
-    void viewMySkills(Login* login);
-
-    Menu* menu;
-};
+} // namespace skillswap
 
 #endif
