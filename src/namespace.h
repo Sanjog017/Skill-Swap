@@ -14,6 +14,9 @@ class Skill;
 class SkillRequest;
 class FileManager;
 class Menu;
+class Validation;
+class Login;
+class Registration;
 
 } // namespace skillswap
 

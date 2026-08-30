@@ -44,6 +44,9 @@ public:
     // friend function — has access to private members
     friend std::ostream& operator<<(std::ostream& out, const SkillRequest& r);
 
+    // friend class — FileManager can read/write our private members
+    friend class FileManager;
+
 private:
     int id;
     int fromUser;

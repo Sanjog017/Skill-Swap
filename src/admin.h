@@ -2,6 +2,7 @@
 #define ADMIN_H
 
 #include "account.h"
+#include "skill.h"
 
 namespace skillswap {
 
@@ -18,6 +19,14 @@ public:
 private:
     void clearScreen();     // clears the terminal
     void pause();           // waits for Enter key
+    void printBoxLine(std::string text, int width);   // prints one box line
+
+    void viewAllUsers();    // every user with their full profile
+    void deleteUser();      // remove a user (and their skills + requests)
+    void generateReport();  // counts of users / skills / requests
+
+    // builds "guitar, python" from a user's teach (or learn) skills
+    std::string skillList(int userId, SkillType type);
 };
 
 } // namespace skillswap

@@ -1,7 +1,8 @@
 #include "menu.h"
-#include "account.h"
 #include "user.h"
 #include "admin.h"
+#include "login.h"
+#include "registration.h"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -11,11 +12,15 @@ using namespace std;
 namespace skillswap {
 
 Menu::Menu() {
+    login = new Login();
+    registerPage = new Registration();
     currentAccount = nullptr;
 }
 
-// deletes the logged-in account if any (uses delete — works because ~Account is virtual)
+// deletes the pages and the logged-in account if any
 Menu::~Menu() {
+    delete login;
+    delete registerPage;
     delete currentAccount;
 }
 
@@ -35,7 +40,7 @@ void Menu::pause() {
     getline(cin, dummy);
 }
 
-// shows the main menu and handles login/register/exit choices
+// the main loop: Login / Register / Exit
 void Menu::showMainMenu() {
     string choice;
 
@@ -55,53 +60,43 @@ void Menu::showMainMenu() {
         cout << "  Enter choice: ";
 
         if (!getline(cin, choice)) {
-            break;
+            break;   // EOF (Ctrl+D) — quit safely
         }
 
         if (choice == "1") {
-            // --- polymorphism demo ---
-            // for now, ask user to pick "user" or "admin" to simulate login
-            // later phases will do real credential checking
             clearScreen();
-            cout << "\n  Login as:\n";
-            cout << "  1. User\n";
-            cout << "  2. Admin\n";
-            cout << "\n  Enter choice: ";
+            bool ok = login->loginUser();
 
-            string roleChoice;
-            getline(cin, roleChoice);
-
-            if (roleChoice == "1") {
-                // create a User object — stored as Account* (polymorphism)
-                currentAccount = new User(1, "Test User", "testuser", "pass123");
-                cout << "\n  Login successful!" << endl;
-                pause();
-
-                // virtual function call — runs User::displayMenu(), not Account's
-                currentAccount->displayMenu();
-
-                delete currentAccount;
-                currentAccount = nullptr;
+            // polymorphism — build the right kind of account under an Account*
+            if (ok && login->isAdmin()) {
+                currentAccount = new Admin(0, "Admin", login->getUsername(),
+                                           login->getPassword());
             }
-            else if (roleChoice == "2") {
-                // create an Admin object — stored as Account* (polymorphism)
-                currentAccount = new Admin(1, "Admin", "admin", "password");
-                cout << "\n  Admin login successful!" << endl;
+            else if (ok) {
+                currentAccount = new User(login->getUserId(), login->getName(),
+                                          login->getUsername(), login->getPassword());
+            }
+
+            if (currentAccount != nullptr) {
+                cout << "\n  Login successful! Welcome back, @"
+                     << currentAccount->getUsername() << "!\n";
                 pause();
 
-                // virtual function call — runs Admin::displayMenu(), not Account's
+                // virtual call — runs User::displayMenu() or Admin::displayMenu()
                 currentAccount->displayMenu();
 
-                delete currentAccount;
+                delete currentAccount;   // log out
                 currentAccount = nullptr;
+                login->logout();
             }
             else {
-                cout << "\n  Invalid choice." << endl;
+                cout << "\n  Invalid username or password.\n";
                 pause();
             }
         }
         else if (choice == "2") {
-            cout << "\n  Register coming soon..." << endl;
+            clearScreen();
+            registerPage->registerUser();
             pause();
         }
         else if (choice == "3") {
@@ -109,7 +104,7 @@ void Menu::showMainMenu() {
             break;
         }
         else {
-            cout << "\n  Invalid choice. Try again." << endl;
+            cout << "  Invalid choice. Try again." << endl;
             pause();
         }
     }
