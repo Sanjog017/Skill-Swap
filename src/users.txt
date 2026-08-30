@@ -1,0 +1,2 @@
+1,prince,prince12,sanjog123,user,bcait,2,attendmate,prince@kcc.edu.np
+2,sanjog pathak ,sanjog017,sanjog123,user,bit,8,skillswap,sanjog@kcc.edu.np
