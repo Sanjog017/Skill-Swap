@@ -1,7 +1,0 @@
-1,c++,teach
-1,python,teach
-1,c,learn
-1,html,learn
-2,c,teach
-2,css,teach
-2,c++,learn
