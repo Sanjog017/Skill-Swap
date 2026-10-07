@@ -11,7 +11,7 @@ namespace skillswap {
 class Login {
 public:
     Login();                   // starts logged out
-    bool loginUser();          // checks admin.txt then users.txt
+    bool loginUser();          // asks admin/user, then checks that file
     void logout();             // clears the session
     bool isLoggedIn() const;   // is anyone logged in?
     bool isAdmin() const;      // is the admin logged in?
