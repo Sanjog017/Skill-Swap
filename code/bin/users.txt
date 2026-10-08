@@ -1,3 +1,4 @@
 1,sanjog pathak,sanjog017,sanjog123,user,bcait,3rd,,sanjog@kcc.edu.np
-2,anjila shreshta ,anjila27,anjila123,user,bcait,5,,anjila@kcc.edu.np
+2,anjila shreshta ,anjila27,anjila123,user,bca,2,skillswap;bswvdbehj,anjila@gmail.com
 3,aadarsh chaudhary ,aadarsh1,aadarsh123,user,bit,2nd,,aadarsh@kcc.edu.np
+4,Alex Monkey,monkeyalex,anjilabaini,user,BBA,1,Nothing,alexbadar@gmail.com

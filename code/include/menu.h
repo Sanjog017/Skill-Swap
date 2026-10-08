@@ -12,7 +12,7 @@ public:
     ~Menu();            // deletes them and the logged-in account (new/delete)
     void showMainMenu();    // displays login/register/exit loop
 private:
-    void clearScreen();     // clears the terminal
+    void clearScreen();     // clear the terminal 
     void pause();           // waits for Enter key
 
     Login* login;               // handles login / session

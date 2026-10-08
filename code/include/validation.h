@@ -18,7 +18,7 @@ public:
     static bool isValidEmail(const std::string& email);       // has @ and a dot
     static bool isValidProjects(const std::string& projects); // empty ok, else no commas
 
-    static std::string readPassword();   // masked password input
+    static std::string readPassword();   // masked password input ******
 };
 
 } // namespace skillswap
