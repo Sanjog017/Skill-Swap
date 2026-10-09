@@ -96,6 +96,9 @@ bool Validation::isValidProjects(const string& projects) {
 // reads a password and shows * for every character typed
 string Validation::readPassword() {
     string password = "";
+    // show the prompt now — we read the fd directly, not std::cin,
+    // so std::cout is not auto-flushed before the first key is pressed
+    cout.flush();
 #ifdef _WIN32
     char c;
     while (true) {
