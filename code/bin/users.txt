@@ -1,4 +1,11 @@
-1,sanjog pathak,sanjog017,sanjog123,user,bcait,3rd,,sanjog@kcc.edu.np
-2,anjila shreshta ,anjila27,anjila123,user,bca,2,skillswap;bswvdbehj,anjila@gmail.com
-3,aadarsh chaudhary ,aadarsh1,aadarsh123,user,bit,2nd,,aadarsh@kcc.edu.np
-4,Alex Monkey,monkeyalex,anjilabaini,user,BBA,1,Nothing,alexbadar@gmail.com
+1,sanjog pathak,sanjog017,sanjog123,user,BCAIT,3rd,Portfolio Website,sanjog017@kcc.edu.np
+2,anjila shrestha,anjila27,anjila123,user,BCA,2,UI Design,anjila27@kcc.edu.np
+3,aadarsh kumar chaudhary,aadarsh1,aadarsh123,user,BIT,2nd,Library Management System,aadarsh1@kcc.edu.np
+4,Prince Chaudhary,prince12,prince123,user,BCA,4th,E-commerce App,prince12@kcc.edu.np
+5,Nisha Gurung,nisha5,nisha123,user,BSc CSIT,5th,Chat Application,nisha5@kcc.edu.np
+6,Bibek Thapa,bibek6,bibek123,user,BBA,1st,Marketing Plan,bibek6@kcc.edu.np
+7,Sita Rai,sita7,sita123,user,BCA,6th,Event Portal,sita7@kcc.edu.np
+8,Rohan Shrestha,rohan8,rohan123,user,BE Computer,4th,Traffic App,rohan8@kcc.edu.np
+9,Puja Karki,puja9,puja123,user,BCA,3rd,Quiz App,puja9@kcc.edu.np
+10,Kiran Bhandari,kiran10,kiran123,user,BSc CSIT,6th,Music Player,kiran10@kcc.edu.np
+11,Aayush Adhikari,aayush11,aayush123,user,BIT,1st,To-do App,aayush11@kcc.edu.np

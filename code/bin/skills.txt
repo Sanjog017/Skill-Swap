@@ -1,6 +1,35 @@
 1,C++,teach
-1,python,learn
-2,c,teach
-2,html,teach
+1,Python,teach
+1,Web Development,learn
+2,C,teach
+2,HTML,teach
 2,C++,learn
-2,java,teach
+2,Python,learn
+3,Java,teach
+3,MySQL,teach
+3,Web Development,learn
+3,C++,learn
+4,Web Development,teach
+4,JavaScript,teach
+4,Java,learn
+5,Data Structures,teach
+5,Algorithms,teach
+5,C,learn
+6,Photography,teach
+6,Photoshop,teach
+6,Python,learn
+7,Guitar,teach
+7,Singing,teach
+7,Photography,learn
+8,Android,teach
+8,Kotlin,teach
+8,Java,learn
+9,Dance,teach
+9,Choreography,teach
+9,C++,learn
+10,Audio Editing,teach
+10,Music Production,teach
+10,Python,learn
+11,Public Speaking,teach
+11,Debating,teach
+11,Python,learn
