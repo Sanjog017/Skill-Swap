@@ -30,4 +30,10 @@ See `wp.md`, `wof.md`, `Algorithm.md`, `flowchart.md` and `testcase.md`.
 
 ## Credits
 
+Aadarsh Kumar Chaudhary: github.com/Aadarshchaadhary
+
+Anjila Shrestha: github.com/anjila26
+
+Sanjog Pathak: github.com/Sanjog017
+
 README written by **anjila26**.
