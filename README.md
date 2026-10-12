@@ -1,7 +1,8 @@
 # Skill-Swap
 
-A C++ console app with a LinkedIn-style flow: build a profile, search people
-by skill, send connect requests, and see contact details once connected.
+Our second semester project — a console-based application built in C++ with a
+LinkedIn-style flow: build a profile, search people by skill, send connect
+requests, and see contact details once connected.
 
 ## Build & Run
 
